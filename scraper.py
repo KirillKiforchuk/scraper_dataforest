@@ -63,7 +63,10 @@ def get_n_parse(url, date):
         html_page = session.post(url + "/SITLAPORWEB/AtPublicoDAction.do", data=payload).text
     except requests.exceptions.ConnectionError:
         logger.exception("Can't access site", exc_info=False)
-        html_page = ''
+        return None
+    except (MemoryError, requests.exceptions.ChunkedEncodingError):
+        logger.exception("Can't read data from site", exc_info=False)
+        return None
 
     # return parsed data
     try:
