@@ -124,11 +124,12 @@ def main():
     # run async scraper
     logger.info("Start scraping")
     loop = asyncio.get_event_loop()
-    res = loop.run_until_complete(scrape(url, from_date, date_format))
+    scrapped_data = loop.run_until_complete(scrape(url, from_date, date_format))
     loop.close()
     logger.info("Finish scraping")
 
-    print(res)
+    # save scrapped data like you want
+    print(scrapped_data)
 
 
 main()
