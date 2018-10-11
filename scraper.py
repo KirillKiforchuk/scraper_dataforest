@@ -118,7 +118,7 @@ async def scrape(url, from_date, date_format):
 def main():
     # initial params
     url = "https://laboral.pjud.cl"
-    from_date = "22/12/2017"
+    from_date = "01/01/2018"
     date_format = "%d/%m/%Y"
 
     # run async scraper
